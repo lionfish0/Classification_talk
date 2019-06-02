@@ -61,7 +61,7 @@
 					    You want to classify new data that you don't know the class (label) of.
 					</p>
 					<p class="fragment">
-					    Because the data is labeled, this is an example of <b>supervised learning</b>.
+					    Because the data is labelled, this is an example of <b>supervised learning</b>.
 					</p>					
                     <!-- <img src="assets/romans.jpg" width="50%" /> -->
 				</section>
@@ -104,7 +104,7 @@
 					<h2>Acute Malnutrition Screening</h2>
 					<p>
                         <img src="assets/paper.png" width="50%" align="right" style="margin:0px; border-style:none; background:none; box-shadow: none;" />
-                        Which is best?</p><p>Researchers looked at outcomes of children presenting with different MUACs and z-scores.</p><p>Aim: Classify, based on MUAC, whether a child will recover without intervention.</p><br/>
+                        Which is best?</p><p>Researchers looked at outcomes of children presenting with different MUACs and z-scores.</p><p>Aim: Classify, based on MUAC, whether a child will recover without intervention.</p><p align="left" style="font-size:8px;">e.g. Laillou, Arnaud, et al. "Optimal screening of children with acute malnutrition requires a change in current WHO guidelines as MUAC and WHZ identify different patient groups." PloS one 9.7 (2014): e101159.</small></p><br/>
 					</p>
 				</section>
 				
@@ -213,7 +213,7 @@
 				
 				<section data-background="assets/pres_bg.png">
 					<h2>Leave-one-out cross-validation</h2>
-                    <p><img src="assets/leftout.png" align="left" style="margin:10px;" />Here we've left out one of the children from the training data. We can now TEST to see if the classifer got it correct. In this case it didn't.</p>
+                    <p><img src="assets/leftout.png" align="left" style="margin:10px;" />Here we've left out one of the children from the training data. We can now TEST to see if the classifier got it correct. In this case it didn't.</p>
 				</section>
 							
 				<section data-background="assets/pres_bg.png">
@@ -223,8 +223,8 @@
 				</section>
 										
 				<section data-background="assets/pres_bg.png">
-					<h2>Overfitting</h2>
-                    <p><img src="assets/random2.png" align="left" style="margin:10px;" />This decision boundary is an example of overfitting.</p><p>Our 'model' is overly complicated and describes the noise, rather than the underlying structure.</p>
+					<h2>Over-fitting</h2>
+                    <p><img src="assets/random2.png" align="left" style="margin:10px;" />This decision boundary is an example of over-fitting.</p><p>Our 'model' is overly complicated and describes the noise, rather than the underlying structure.</p>
 				</section>	
 								
 			    <section data-background="assets/pres_bg.png">
@@ -274,7 +274,7 @@
 				</section>						
 				
 				<section data-background="assets/pres_bg.png">
-				<p>Questions</p>
+				<h2>Questions</h2>
 				</section>
 				<section data-background="assets/pres_bg.png">
 					<h2>Terminology</h2>

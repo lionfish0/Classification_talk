@@ -40,8 +40,7 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides" data-background="assets/pres_bg.png">
-                <section data-background="assets/pres_bg.png">
-                </section>
+                
 				<section data-background="assets/pres_bg.png">
                     <h3>What is</h3>
 					<h1>Classification?</h1>
@@ -64,6 +63,21 @@
 					    Because the data is labelled, this is an example of <b>supervised learning</b>.
 					</p>					
                     <!-- <img src="assets/romans.jpg" width="50%" /> -->
+				</section>
+				
+				
+				<section data-background="assets/pres_bg.png">
+					<h2>Topics</h2>
+					<p><ul><li>Example: Malnutrition
+					<li>Nearest neighbour vs decision boundary
+					<li>Cross validation (& correlation)
+					<li>Over-fitting
+					<li>Validation
+                    <li>Feature selection example: Sickle Cell
+                    <li>Imbalanced Data
+                    <li>Detour: F-score (what is it?)
+					</ul>
+					</p>
 				</section>
 
 
@@ -115,7 +129,7 @@
                <section data-background="assets/pres_bg.png">
 					<h2>MUAC (simulated) Dataset</h2>
 					<p>
-                        <img src="assets/classify1.png" align="center" style="margin:50px;" width="50%" /><br />
+                        <img src="assets/classify1.png" align="center" style="margin:0px;" width="70%" /><br />
                         <b>SIMULATED</b> data from 29 children who recovered without treatment and 19 who didn't</p>
 					</p>
 				</section>
@@ -237,59 +251,118 @@
                     <p>Once you've finished adjusting the model (using the training and test sets), use a <b>validation</b> dataset, that you'd not used yet for anything else.</p>
                     <img src="assets/traintestvalidate.png" align="center" style="margin:30px; border-style:none; background:none; box-shadow: none;" />
 				</section>
-												
-
-				<section data-background="assets/pres_bg_bb_white.jpg">
-					<h2>Logistic Regression</h2>
-                    <p>A quick mention of how classification can often be considered a regression problem...</p>
-				</section>				
-				
-				
-				<section data-background="assets/pres_bg_bb_white.jpg">
-					<h2>Logistic Regression</h2>
-					<img src="assets/zscore.png" align="center" style="margin:30px; border-style:none; background:none; box-shadow: none;" />
-                    <p>Earlier we tried to find a decision boundary to separate out these two classes.</p>
-				</section>				
-				
-				<section data-background="assets/pres_bg_bb_white.jpg">
-					<h2>Logistic Regression</h2>
-					<img src="assets/logistic.png" align="center" style="margin:30px; border-style:none; background:none; box-shadow: none;" />
-                    <p>But if we treat the y-axis as a number, could we instead fit a line?</p>
-				</section>						
-				
-				<section data-background="assets/pres_bg_bb_white.jpg">
-					<h2>Logistic Regression</h2>
-					<img src="assets/logistic.png" align="center" style="margin:30px; border-style:none; background:none; box-shadow: none;" width="30%" />
-                    <p>Logistic Regression does exactly that, and fits this function to the data:</p>
-                    <p>$Logistic(z) = \frac{1}{1 + e^{-z}}$</p>
-				</section>						
-				
-				
-				<section data-background="assets/pres_bg_bb_white.jpg">
-					<h2>Logistic Regression</h2>
-                    <p>For classification we just assign a threshold to that function.</p>
-                    <p>We replace $z$ with $w^\top x$. This might look familiar from Neil's lecture on regression.</p>
-                    <p>$Logistic(z) = \frac{1}{1 + e^{-\mathbf{w}^\top\mathbf{x}}}$</p>
-                    <p>We basically have a couple of parameters in $w$ which we adjust to make the curve fit our data as well as possible.</p>
-				</section>						
 				
 				<section data-background="assets/pres_bg.png">
-				<h2>Questions</h2>
+					<h2>Feature Selection</h2>
+                    <p>Typically, as a ML-expert, you'll be given a set of data and will need to decide which parts of the data will be useful to answer a problem...</p>
+                    <p>Usually requires, looking at the data and discussion with the domain-experts.</p>
+                    <p>Often depends on the quality and biases in the collected data<p>
 				</section>
 				<section data-background="assets/pres_bg.png">
-					<h2>Terminology</h2>
-                    <p>True Positive = Sensitivity</p>
-                    <p>False Positive = Type I error</p>
-                    <p>True Negative = Specificity</p>
-                    <p>False Negative = Type II error</p>
-				</section>
+					<h2>Sickle Cells</h2>
+					<img src="assets/Sickle Cell Anemia 400X.jpg" width=50% />
+                    <p>Example problem: Count the number of sickle cells<p>
+                    <p>What features of the cells would be useful?</p>
+                    <p>i.e. which features are "invariant".</p>
+				</section>				
 				
-				
-				
-				
-				
+				<section>
+<h2>Example Extracted Features</h2>				
+ <table>
+  <tr>
+    <th>Circumference (pixels)</th>
+    <th>Average pixel value</th>
+    <th>Area (pixels${}^2$)</th>
+    <th>Sickle? (manually labelled)<th>
+  </tr>
+  <tr>
+    <td>45</td>
+    <td>72</td>
+    <td>201</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>62</td>
+    <td>51</td>
+    <td>340</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <td>30</td>
+    <td>36</td>
+    <td>85</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>55</td>
+    <td>65</td>
+    <td>126</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>50</td>
+    <td>62</td>
+    <td>125</td>
+    <td>No</td>
+  </tr>  
+</table> 
+<p>These could be fed into one of the classifiers discussed.
+</section>
 
+<section data-background="assets/pres_bg.png">
+	<h2>Manual feature selection vs deep models...</h2>
 
+    <p> 	<img src="assets/Sickle Cell Anemia 400X.jpg" width=20% align="right" />The example was of classifying images, something the CNN community have worked on considerably. Does the CNN learn the features itself? [is this data efficient?]
+    <p>Many (most?) problems benefit still from feature engineering. Maybe one could localise the cells first and then run the DNN on each one, rather than the whole slide?
+    <p>Can include expert knowledge (e.g. we might want to hide features that might differ in future tests - data shift)</p>
+</section>		
+
+<section data-background="assets/pres_bg.png">
+<h2>Other issues: Imbalanced Data</h2>
+<p>"I have a binary classification problem and one class is present with 60:1 ratio in my training set. I used the logistic regression and the result seems to just ignores one class."</p>
+<p><small>https://machinelearningmastery.com/tactics-to-combat-imbalanced-classes-in-your-machine-learning-dataset/</small></p>
+<p>Don't just report 'accuracy'! Also Area under the curve ROC isn't ideal if imbalanced. Use F-score? Or even better a confusion matrix.
+<p>Some classifiers need balanced training data. Could resample to even up class sizes (or use additional synthetic data). Some classifiers let you penalise one type of mistake more.
+<p>
+</section>
+<section data-background="assets/pres_bg.png">
+<h2>Detour: F-score</h2>
+<p>
+<img src="assets/Precisionrecall.svg.png" align="right" width=30% />
+The F-score gives a description of a classifier's accuracy combining both the <b>precision</b> and <b>recall</b>.<br/>
+Example: 100 cells were tested.<br/> 25 were really sickle. The classifier found 20 of these.<br/> It also identified 30 of the non-sickle as sickle.<br/>
+What is the Precision (detected true positives/all <b>detected</b> positives)?</br>
+What is the Recall (detected true positives/all <b>real</b> positives)?</br>
+<br/>
+</p>
+<p><small>Image from wikipedia</small></p>
+</section>
+<section data-background="assets/pres_bg.png">
+<h2>Detour: F-score</h2>
+<p>
+What is the Precision (detected true positives/all <b>detected</b> positives)? <br/><b>20/50 = 0.4</b></br>
+What is the Recall (detected true positives/all <b>real</b> positives)? <br/><b>20/25 = 0.8</b></br>
+<br/>
+</p>
+<p>$\text{F-score} = (\frac{\text{recall}^{-1} + \text{precision}^{-1}}{2})^{-1}$
+<p>$[(2.5 + 1.25)/2]^{-1} = 0.53$</p>
+<p>Issue: weights precision and recall equally.</p>
+</section>
+
+<section data-background="assets/pres_bg.png">
+<h2>Summary</h2>
+<ul>
+<li>classification is supervised learning.
+<li>Example: Malnutrition (MUAC/z-score)
+<li>Nearest neighbour vs decision boundary
+<li>Cross validation (be careful with correlated training data)
+<li>Over-fitting
+<li>Validation
+<li>Feature selection example: Sickle Cell
+<li>Imbalanced Data
+<li>Detour: F-score
+</ul>
+</section>
 </div>
 
 </div>
